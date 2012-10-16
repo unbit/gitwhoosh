@@ -36,7 +36,9 @@ application = GitWhoosh('path_of_your_repository', '/tmp/indexes')
 
 Just pass the query as the QUERY_STRING of your request:
 
+```
 http://localhost:9090/?optimize%20AND%20foobar
+```
 
 ... will return a JSON of the search result for "optimize AND foobar".
 
