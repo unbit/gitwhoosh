@@ -12,7 +12,7 @@ the whoosh database.
 
 The following snippet will index all of the restructuredtext files in your tree
 
-```
+```python
 from gitwhoosh import GitWhoosh
 
 gw = GitWhoosh('path_of_your_repository', '/tmp/indexes')
@@ -21,7 +21,7 @@ gw.index('\.rst$\')
 
 while the following one will reports all of the items containing the word FOO or the word BAR
 
-```
+```python
 from gitwhoosh import GitWhoosh
 
 gw = GitWhoosh('path_of_your_repository', '/tmp/indexes')
