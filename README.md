@@ -60,7 +60,7 @@ The JSON is a list of objects, where 'path' is the path of the git object and 't
 Periodically running the indexer
 ================================
 
-Obviously you need to reindex your repository whenevr it changes.
+Obviously you need to reindex your repository whenever it changes.
 
 You can do it periodically using your system cron or the uWSGI supplied one (if you are running the GitWhoosh WSGI app)
 
