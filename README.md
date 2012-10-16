@@ -36,4 +36,12 @@ application = GitWhoosh('path_of_your_repository', '/tmp/indexes')
 
 Just pass the query as the QUERY_STRING of your request:
 
-http://example.com/?FOO%20OR%20BAR
+http://localhost:9090/?optimize%20AND%20foobar
+
+... will return a JSON of the search result for "optimize AND foobar".
+
+The JSON is a list of objects, where 'path' is the path of the git object and 'terms' is a list of matching terms:
+
+```json
+[{"path": "plugins/cgi/cgi_plugin.c", "terms": ["foobar", "optimize"]}, {"path": "plugins/python/python_plugin.c", "terms": ["foobar", "optimize"]}]
+```
