@@ -65,6 +65,7 @@ Obviously you need to reindex your repository whenever it changes.
 You can do it periodically using your system cron or the uWSGI supplied one (if you are running the GitWhoosh WSGI app)
 
 ```python
+from uwsgidecorators import cron
 from gitwhoosh import GitWhoosh
 application = GitWhoosh('path_of_your_repository', '/tmp/indexes')
 
