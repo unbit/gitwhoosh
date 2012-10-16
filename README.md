@@ -31,10 +31,19 @@ print gw.search('FOO OR BAR')
 GitWhoosh instances are valid WSGI apps too:
 
 ```python
+from gitwhoosh import GitWhoosh
 application = GitWhoosh('path_of_your_repository', '/tmp/indexes')
 ```
 
-Just pass the query as the QUERY_STRING of your request:
+save it as foo.py and run with your WSGI server of choice.
+
+For example in uWSGI
+
+```
+uwsgi --http-socket :9090 --wsgi-file foo.py
+```
+
+Now just pass the query as the QUERY_STRING of your request:
 
 ```
 http://localhost:9090/?optimize%20AND%20foobar
