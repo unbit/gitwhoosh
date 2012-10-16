@@ -56,3 +56,19 @@ The JSON is a list of objects, where 'path' is the path of the git object and 't
 ```json
 [{"path": "plugins/cgi/cgi_plugin.c", "terms": ["foobar", "optimize"]}, {"path": "plugins/python/python_plugin.c", "terms": ["foobar", "optimize"]}]
 ```
+
+Periodically running the indexer
+================================
+
+Obviously you need to reindex your repository whenevr it changes.
+
+You can do it periodically using your system cron or the uWSGI supplied one (if you are running the GitWhoosh WSGI app)
+
+```python
+from gitwhoosh import GitWhoosh
+application = GitWhoosh('path_of_your_repository', '/tmp/indexes')
+
+@cron(59, 4, -1, -1, -1)
+def reindex(signum):
+    application.index()
+```
