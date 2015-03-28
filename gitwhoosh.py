@@ -21,7 +21,7 @@ class GitWhoosh:
     def hook_index(self, func, path):
         mtime = self.git_index[path][1]
         sha = self.git_index[path][8]
-        blob = self.repo.get_blob(sha).as_raw_string()
+        blob = self.repo[sha].as_raw_string()
         func(path=path.decode('utf-8'), content=blob.decode('utf-8'), itime=mtime)
 
     def index(self, regexp=None):
